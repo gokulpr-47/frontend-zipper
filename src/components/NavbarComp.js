@@ -13,7 +13,7 @@ export default function NavbarComp(){
     axios({
       method: "GET",
       withCredentials: true,
-      // url: "https://quizzooo.herokuapp.com/logout",
+      url: "https://fc-24.herokuapp.com/logout",
     }).then((res) => {
       if (res.data.isLoggedOut) {
         setIsLoggedIn(false);
@@ -27,7 +27,7 @@ export default function NavbarComp(){
       method: "GET",
       withCredentials: true,
       //   url: "https://quizzooo.herokuapp.com/getuser",
-      url: "https://quizzooo.herokuapp.com/getuser",
+      url: "https://fc-24.herokuapp.com/getuser",
     })
       .then((res) => {
         if (res.data.isLoggedIn) {
