@@ -33,7 +33,7 @@ export default function NavbarComp(){
               <Nav.Link href="#action2">CONTACT</Nav.Link>
               <Nav.Link href="#action2">BLOG</Nav.Link>
               <Nav.Link href="#action2">ABOUT</Nav.Link>
-              <Nav.Link href="#action2">LOGIN</Nav.Link>
+              <Nav.Link href="#action2">signup</Nav.Link>
           </Nav>
           </Offcanvas.Body>
       </Navbar.Offcanvas>
