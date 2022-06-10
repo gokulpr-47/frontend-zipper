@@ -1,23 +1,23 @@
-import React from 'react'
+import {useContext} from 'react'
 import {useState} from 'react'
 import { Button, Container } from "react-bootstrap";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-// import { LoginContext } from "../../contexts/LoginContext";
+import { LoginContext } from "../contexts/LoginContext";
 
 export default function Signup(props){
-    // const history = useHistory();
-    // const { setIsLoggedIn } = useContext(LoginContext);
+    const history = useHistory();
+    const { setIsLoggedIn } = useContext(LoginContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [number, setNumber] = useState();
     const [email, setEmail] = useState();
-    // const [redirectPath, setRedirectPath] = useState(
-    //     props.location.state ? props.location.state.next : false
-    // );
-    // const [redirectText, setRedirectText] = useState(
-    //     props.location.state ? props.location.state.message : false
-    // );
+    const [redirectPath, setRedirectPath] = useState(
+        props.location.state ? props.location.state.next : false
+    );
+    const [redirectText, setRedirectText] = useState(
+        props.location.state ? props.location.state.message : false
+    );
 
     const sendData = () => {
         axios({
@@ -32,14 +32,14 @@ export default function Signup(props){
         url: "https://fc-24.herokuapp.com/register",
         }).then((res) => {
         if (res.data.loggedIn) {
-            // setIsLoggedIn(true);
+            setIsLoggedIn(true);
             console.log("user Connected", res.data);
-            // setRedirectText(false);
-            // history.push(redirectPath ? redirectPath : "/");
+            setRedirectText(false);
+            history.push(redirectPath ? redirectPath : "/");
         }   
-        //  else {
-        //     setRedirectText(res.data.message);  
-        // }
+         else {
+            setRedirectText(res.data.message);  
+        }
         });
     };
     return(
@@ -48,13 +48,13 @@ export default function Signup(props){
                 <Container>
                     <div className="signIn_page">
                         <h3>Sign In</h3>
-                        {/* {redirectText ? (
+                        {redirectText ? (
                         <p style={{ marginBottom: "0px", fontWeight: "500" }}>
                             {redirectText}
                         </p>
                         ) : (
                         ""
-                        )} */}
+                        )}
                         <div>
                         <input
                             type="text"

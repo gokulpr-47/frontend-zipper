@@ -1,10 +1,47 @@
-import React from 'react'
-import {Container, Navbar, Offcanvas, Nav, Form, FormControl} from 'react-bootstrap'
+import { useContext, useEffect } from 'react'
+import {Container, Navbar, Offcanvas, Nav, Form, FormControl} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
+import { LoginContext } from '../contexts/LoginContext';
+import axios from 'axios'
 
 export default function NavbarComp(){
-    return(
+
+  const { isLoggedIn, setIsLoggedIn, setUser } = useContext(LoginContext);
+  const sendLogOut = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      // url: "https://quizzooo.herokuapp.com/logout",
+    }).then((res) => {
+      if (res.data.isLoggedOut) {
+        setIsLoggedIn(false);
+        setUser(null);
+      }
+    });
+  };
+  
+  useEffect(() => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      //   url: "https://quizzooo.herokuapp.com/getuser",
+      url: "https://quizzooo.herokuapp.com/getuser",
+    })
+      .then((res) => {
+        if (res.data.isLoggedIn) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+        }
+      })
+      .catch((e) => {
+        console.log(e, "error");
+      });
+  }, []);
+
+  return(
       <Navbar key={'sm'} expand={'sm'}>
         <Container fluid>
           <Navbar.Brand href="#">ZIPPER.</Navbar.Brand>
@@ -33,7 +70,13 @@ export default function NavbarComp(){
               <Nav.Link href="#action2">CONTACT</Nav.Link>
               <Nav.Link href="#action2">BLOG</Nav.Link>
               <Nav.Link href="#action2">ABOUT</Nav.Link>
-              <Nav.Link href="#action2">signup</Nav.Link>
+              {isLoggedIn? (
+              <Nav.Link onClick={sendLogOut}>logout</Nav.Link>
+                
+              ):(
+                <Nav.Link className="nav-link" as={Link} to="/signup">signup</Nav.Link>
+              )}
+              
           </Nav>
           </Offcanvas.Body>
       </Navbar.Offcanvas>
