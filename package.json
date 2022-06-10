@@ -1,6 +1,7 @@
 {
   "name": "zipper",
   "version": "0.1.0",
+  "proxy": "http://fc-24.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
