@@ -9,15 +9,22 @@ import Dashboard from './components/Dashboard'
 import Lendout from './components/Lendout'
 import { LoginContext } from './contexts/LoginContext';
 import useIsLoggedIn from './isloggedin'
+import LandingPage from './components/LandingPage'
 // import NavbarComp from './components/NavbarComp'
 
 export default function App(){
     const [isLoggedIn, setIsLoggedIn] = useIsLoggedIn("isLoggedIn",false);
     const [user, setUser] = useState()
     const [username, setUsername] = React.useState("John Doe");
-    // const []
+    const [quiz, setQuiz] = React.useState(false)
+    
+    function startQuiz(){
+        setQuiz(!quiz);
+    }
+
     return(
         <BrowserRouter>
+            {!quiz && <LandingPage onStart={()=>startQuiz()}/>}
             <LoginContext.Provider value= {{setIsLoggedIn, isLoggedIn, setUser,user}}>
                 <NavbarComp/>
                     <Switch>
