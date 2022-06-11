@@ -351,3 +351,17 @@ form > .form-control{
 .book-detail{
     margin: 60px auto;
 }
+
+.home-title{
+    padding: 0 40px;
+}
+
+.landing-brand{
+    justify-content: center;
+    text-align: center;
+}
+
+.landing-brand > h3{
+    width: 70%;
+    color: rgba(98, 141, 206, 0.86);
+}
