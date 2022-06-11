@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Button, Container } from "react-bootstrap";
 // import { useHistory } from "react-router-dom";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 // import { LoginContext } from "../../contexts/LoginContext";
 
 export default function Login(props) {
@@ -73,6 +74,7 @@ export default function Login(props) {
                     </Button>
                 </div>
             </Container>
+            <p className="signup-direct my-3">Don't have an account <Link to={`/Signup`}>Sign Up</Link></p>
         </div>
     </div>
   );

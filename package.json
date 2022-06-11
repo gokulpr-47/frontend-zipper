@@ -1,8 +1,8 @@
 {
   "name": "zipper",
   "version": "0.1.0",
-  "proxy": "https://fc-24.herokuapp.com/",
   "private": true,
+  "proxy": "https://fc-24.herokuapp.com/",
   "dependencies": {
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",

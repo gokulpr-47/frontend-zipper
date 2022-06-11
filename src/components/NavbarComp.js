@@ -44,7 +44,7 @@ export default function NavbarComp(){
   return(
       <Navbar key={'sm'} expand={'sm'}>
         <Container fluid>
-          <Navbar.Brand href="#">ZIPPER.</Navbar.Brand>
+          <Navbar.Brand href="#">Z</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${'sm'}`}
@@ -74,7 +74,7 @@ export default function NavbarComp(){
               <Nav.Link onClick={sendLogOut}>logout</Nav.Link>
                 
               ):(
-                <Nav.Link className="nav-link" as={Link} to="/signup">signup</Nav.Link>
+                <Nav.Link className="nav-link" as={Link} to="/signup">SIGNUP</Nav.Link>
               )}
               
           </Nav>

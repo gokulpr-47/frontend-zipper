@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', 'sans-serif'
 }
 
 nav{
@@ -204,7 +205,12 @@ form > .form-control{
     display: flex;
     justify-content: center;
 }
-
+.login-direct{
+    text-align: center;
+}
+.signup-direct{
+    text-align:center;
+}
 /* dashboard css */
 .lend-button > button{
     margin-right: 30px;    
@@ -238,4 +244,110 @@ form > .form-control{
 .dashcard{
     display:flex;
     justify-content: center;
+}
+
+/* landing-page css */
+.landing-container{
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    backdrop-filter: blur(11px);
+    position: fixed;
+}
+
+.landing-box{
+    z-index: 2;
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+    text-align: center;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+}
+
+.landing-box > button{
+    padding: 4px 10px;
+    border: 1px solid ;
+}
+
+/* homepage css */
+.banner-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 302px;
+    background: rgba(98, 141, 206, 0.86);
+}
+
+.banner-box > .row > .col > button{
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.blog-section{
+    background: rgba(98, 141, 206, 0.86);
+    margin-bottom: 10px;
+}
+
+.blog-image, .blog-desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.blog-desc{
+    flex-direction: column;
+}
+
+.blog-desc > button{
+    border: none;
+    padding: 10px; 
+    border-radius: 20px;
+}
+
+/* lendout css */
+.lendout-page{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.lendout-page > div > label{
+    padding: 13px 0;
+    width: 105px;
+
+}
+
+.lendout-page > div > input{
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+
+.lendout-container > .container{
+    text-align: center;
+    height: 82vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+/* card detail */
+.card-detail{
+    padding: 0 50px;
+}
+.card-detail-image > img{ 
+    width: 21rem;
+}
+
+.card-detail-row{
+    justify-content: center;
+    align-items: center;
+}
+
+.book-detail{
+    margin: 60px auto;
 }

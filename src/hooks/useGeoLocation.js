@@ -4,6 +4,7 @@ export default function useGeoLocation(){
     const [location, setLocation] = React.useState({
         coordinate: {lat: "", lng: ""},
         loaded: false,
+        error: true
     });
 
     const onSuccess = location => {
@@ -12,12 +13,13 @@ export default function useGeoLocation(){
             coordinates: {
                 lat: location.coords.latitude,
                 lng: location.coords.longitude
-            }
+            },
+            error:false
         })
     }
 
     const onError = error => {
-        setLocation({
+        setLocation({   
             loaded: true,
             error
         })
