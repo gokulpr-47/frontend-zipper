@@ -16,12 +16,21 @@ export default function Lendout(props){
     const [redirectPath, setRedirectPath] = useState(
         props.location.state ? props.location.state.next : false
     );
+    const[location,setLocation] = useState(JSON.stringify(props.location))
     const [redirectText, setRedirectText] = useState(
         props.location.state ? props.location.state.message : false
     );
 
 
     const sendData = () =>{
+        const book = {
+            name:bookName,
+            isbnNumber:isbn,
+            genre,
+            lattitude: location.lattitude,
+            logitude: location.longitude,
+            mrp,
+        }
         axios({
         method: "POST",
         data: {
@@ -31,18 +40,10 @@ export default function Lendout(props){
             mrp: mrp,
             location: JSON.stringify(props.location)
         },
-        withCredentials: true,
-        url: "https://fc-24.herokuapp.com/register",
+        withCredentials: true,  
+        url: "https://fc-24.herokuapp.com/lender/addbook",
         }).then((res) => {
-        if (res.data.loggedIn) {
-            setIsLoggedIn(true);
-            console.log("user Connected", res.data);
-            setRedirectText(false);
-            history.push(redirectPath ? redirectPath : "/");
-        }   
-         else {
-            setRedirectText(res.data.message);  
-        }
+            console.log(res.data);
         });
     }
 
@@ -80,7 +81,7 @@ export default function Lendout(props){
                             <input
                                 type="text"
                                 id="genre"
-                                onChange={(e) => setIsbn(e.target.value)}
+                                onChange={(e) => setGenre(e.target.value)}
                             />
                         </div>
                         <div>
@@ -88,7 +89,7 @@ export default function Lendout(props){
                             <input
                                 type="number"
                                 id="mrp"
-                                onChange={(e) => setIsbn(e.target.value)}
+                                onChange={(e) => setMrp(e.target.value)}
                             />
                         </div>
                         <Button variant="outline-success" onClick={sendData}>
