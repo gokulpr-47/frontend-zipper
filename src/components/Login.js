@@ -29,10 +29,10 @@ export default function Login(props) {
       url: "https://fc-24.herokuapp.com/login",
     }).then((res) => {
       if (res.data.loggedIn) {
-        // setIsLoggedIn(true);
+        setIsLoggedIn(true);
         console.log("user Connected");
-        // setRedirectText(false);
-        // history.push(redirectPath ? redirectPath : "/");
+        setRedirectText(false);
+        history.push(redirectPath ? redirectPath : "/dashboard");
       } 
     //   else {
     //     setRedirectText(res.data.message);

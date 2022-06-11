@@ -36,7 +36,7 @@ export default function Signup(props){
             setIsLoggedIn(true);
             console.log("user Connected", res.data);
             setRedirectText(false);
-            history.push(redirectPath ? redirectPath : "/");
+            history.push(redirectPath ? redirectPath : "/dashboard");
         }   
          else {
             setRedirectText(res.data.message);  
