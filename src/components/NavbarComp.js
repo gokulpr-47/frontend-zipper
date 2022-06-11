@@ -1,13 +1,14 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import {Container, Navbar, Offcanvas, Nav, Form, FormControl} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { LoginContext } from '../contexts/LoginContext';
 import axios from 'axios'
+import Homepage from './Homepage'
 
 export default function NavbarComp(){
-
+  const [password, setPassword] = useState();
   const { isLoggedIn, setIsLoggedIn, setUser } = useContext(LoginContext);
   const sendLogOut = () => {
     axios({
@@ -58,18 +59,19 @@ export default function NavbarComp(){
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Form className="d-flex search-box">
-                <FormControl
-                type="search"
-                placeholder="Search for books, author or genre...."
-                aria-label="Search"
-                />
+            <input
+                type="text"
+                id="text"
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Search for books...."
+            />
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Form>
           <Nav className="justify-content-end pe-3">
-              <Nav.Link href="#action1">HOME</Nav.Link>
-              <Nav.Link href="#action2">CONTACT</Nav.Link>
-              <Nav.Link href="#action2">BLOG</Nav.Link>
-              <Nav.Link href="#action2">ABOUT</Nav.Link>
+              <Link to={`/`}>HOME</Link>
+              <Link to={`/dashboard`}>DASHBOARD</Link>
+              <Nav.Link>BLOG</Nav.Link>
+              <Nav.Link>ABOUT</Nav.Link>
               {isLoggedIn? (
               <Nav.Link onClick={sendLogOut}>logout</Nav.Link>
                 

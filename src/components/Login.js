@@ -45,7 +45,7 @@ export default function Login(props) {
         <div className='signup-box'>
             <Container>
                 <div className="signIn_page">
-                    <h3>Sign In</h3>
+                    <h3>Log In</h3>
                     {/* {redirectText ? (
                     <p style={{ marginBottom: "0px", fontWeight: "500" }}>
                         {redirectText}
@@ -70,7 +70,7 @@ export default function Login(props) {
                     />  
                     </div>
                     <Button variant="outline-success" onClick={sendData}>
-                    Sign In
+                    Log In
                     </Button>
                 </div>
             </Container>

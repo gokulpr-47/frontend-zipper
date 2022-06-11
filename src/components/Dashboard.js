@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import { Row, Col, Button, Tab, Tabs } from 'react-bootstrap'
 import CardComponent from './CardComponent'
 import CardDash from './CardDash'
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 export default function Dashboard(props){
@@ -27,7 +28,7 @@ export default function Dashboard(props){
                         <h3>Hello {props.name}!!</h3>
                     </Col>
                     <Col className='d-flex justify-content-end lend-button'>
-                        <Button>lend new +</Button>
+                        <Link to="/Lendout"><Button>lend new +</Button></Link>
                     </Col>
                 </Row>
             </section>
@@ -57,7 +58,9 @@ export default function Dashboard(props){
             </section>  
         </div>
         ):(
-            <h1>you need to be logged in</h1>
+            <div className="notlogged">
+                <h1>you need to be logged in</h1>
+            </div>
         )}
         </div>
     )
