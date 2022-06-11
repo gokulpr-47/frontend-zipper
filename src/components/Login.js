@@ -1,22 +1,22 @@
 import { useState, useContext } from "react";
 // import "./signin.css";
 import { Button, Container } from "react-bootstrap";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {Link} from 'react-router-dom'
-// import { LoginContext } from "../../contexts/LoginContext";
+import { LoginContext } from "../contexts/LoginContext";
 
 export default function Login(props) {
-//   const history = useHistory();
-//   const { setIsLoggedIn } = useContext(LoginContext);
+  const history = useHistory();
+  const { setIsLoggedIn } = useContext(LoginContext);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-//   const [redirectPath, setRedirectPath] = useState(
-//     props.location.state ? props.location.state.next : false
-//   );
-//   const [redirectText, setRedirectText] = useState(
-//     props.location.state ? props.location.state.message : false
-//   );
+  const [redirectPath, setRedirectPath] = useState(
+    props.location.state ? props.location.state.next : false
+  );
+  const [redirectText, setRedirectText] = useState(
+    props.location.state ? props.location.state.message : false
+  );
 
   const sendData = () => {
     axios({
@@ -34,9 +34,9 @@ export default function Login(props) {
         setRedirectText(false);
         history.push(redirectPath ? redirectPath : "/dashboard");
       } 
-    //   else {
-    //     setRedirectText(res.data.message);
-    //   }
+      else {
+        setRedirectText(res.data.message);
+      }
     });
   };
 
